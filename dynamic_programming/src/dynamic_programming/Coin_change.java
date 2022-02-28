@@ -17,7 +17,7 @@ public class Coin_change {
         table[0] = 1;
         for (int i=0; i<m; i++)
             for (int j=arr[i]; j<=n; j++)
-                table[j] += table[j-arr[i]];
+                table[j] +=  table[j-arr[i]];
  
         return table[n];
 
