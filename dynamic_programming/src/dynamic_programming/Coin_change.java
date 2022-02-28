@@ -6,14 +6,22 @@ public class Coin_change {
 		
 		int arr[]= {1,2,3};
 		int n=4;
-		ArrayList<Integer>res=new ArrayList<>();
-		Solve(arr,n,res);
-		System.out.println(res);
+	
+		
+		System.out.println(Solve(arr,n,arr.length));
 	}
 
-	private static void Solve(int[] arr, int n, ArrayList<Integer> res) {
+	private static long Solve(int[] arr, int n,int m) {
 		
-		
+        long[] table = new long[n+1];
+        table[0] = 1;
+        for (int i=0; i<m; i++)
+            for (int j=arr[i]; j<=n; j++)
+                table[j] += table[j-arr[i]];
+ 
+        return table[n];
+
+
 	}
 	
 }
